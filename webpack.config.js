@@ -4,10 +4,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
-  entry: ['@babel/polyfill', './src/app.js'],
+  entry: ['@babel/polyfill', './src/js/app.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: './js/bundle.js'
   },
   devServer: {
     contentBase: './dist/'
@@ -35,7 +35,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin('dist', {}),
     new MiniCssExtractPlugin({
-      filename: 'style.css'
+      filename: './css/style.css'
     }),
     new HtmlWebpackPlugin({
       inject: true,
