@@ -1,0 +1,27 @@
+@mixin after-overlay {
+    &:after {
+        position: absolute;
+        content: "";
+        display: block;
+        opacity: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba($color-black, .6);
+        transition: all .4s;
+        pointer-events: none;
+
+        //for mobile
+        // @include respond(md) {
+        //     opacity: 1;
+        //     transition: none;
+        // }
+    }
+
+    &:hover {
+        &:after {
+            opacity: 1;
+        }
+    }
+}

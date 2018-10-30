@@ -1,4 +1,18 @@
-body {
-    background-color: blue;
-    object-fit: cover;
-}
+//VENDOR
+
+//ABSTRACT
+@import './abstracts/_variables';
+@import './abstracts/_functions';
+@import './abstracts/_mixins';
+
+//base
+@import './base/_reset';
+@import './base/_animation';
+@import './base/_typography';
+@import './base/_utilities';
+
+//COMPONENTS
+
+//LAYOUT
+
+//PAGES

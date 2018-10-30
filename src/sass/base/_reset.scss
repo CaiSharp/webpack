@@ -1,0 +1,14 @@
+/* universal selector reset for all browsers*, pseudo-elements have to be included separately */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  //takes default font-size from browser into consideration
+  //This defines what 1rem is
+  font-size: 62.5%;
+}
