@@ -1,11 +1,10 @@
-// webpack v4
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-	entry: ['@babel/polyfill', './src/app.js'],
+	entry: ['@babel/polyfill', './src/app.ts'],
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: './js/bundle.js'
@@ -14,13 +13,13 @@ module.exports = {
 		contentBase: './dist/'
 	},
 	module: {
-		rules: [
-			{
+		rules: [{
+				test: /\.tsx?$/,
+				loader: 'babel-loader',
+			}, {
 				test: /\.js$/,
-				exclude: /node_modules/,
-				use: {
-					loader: 'babel-loader'
-				}
+				use: ["source-map-loader"],
+				enforce: "pre"
 			},
 			{
 				test: /\.scss$/,
