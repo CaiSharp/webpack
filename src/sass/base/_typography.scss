@@ -1,4 +1,9 @@
+@include font-face(Lato, '../fonts/Lato/Lato-Regular', 400, null, 'ttf');
+@include font-face(Lato, '../fonts/Lato/Lato-Light', 300, null, 'ttf');
+@include font-face(Lato, '../fonts/Lato/Lato-Bold', 700, null, 'ttf');
+
 body {
+  font-family: 'Lato';
   font-size: $default-font-size;
   box-sizing: border-box;
 }
