@@ -1,7 +1,10 @@
+const PORT = 9000;
+
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
 	entry: ['@babel/polyfill', './src/app.ts'],
@@ -10,7 +13,10 @@ module.exports = {
 		filename: './js/bundle.js'
 	},
 	devServer: {
-		contentBase: './dist/'
+		contentBase: './dist/',
+		host: '0.0.0.0',
+		hot: true,
+		port: PORT,
 	},
 	module: {
 		rules: [{
@@ -72,6 +78,7 @@ module.exports = {
 			inject: true,
 			template: './src/index.html',
 			filename: 'index.html'
-		})
+		}),
+		new webpack.HotModuleReplacementPlugin()
 	]
 };
