@@ -4,7 +4,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const webpack = require('webpack');
 
 module.exports = {
 	entry: ['@babel/polyfill', './src/app.ts'],
@@ -14,8 +13,6 @@ module.exports = {
 	},
 	devServer: {
 		contentBase: './dist/',
-		host: '0.0.0.0',
-		hot: true,
 		port: PORT,
 	},
 	module: {
@@ -72,13 +69,12 @@ module.exports = {
 	plugins: [
 		new CleanWebpackPlugin('dist', {}),
 		new MiniCssExtractPlugin({
-			filename: './css/style.css'
+			filename: './style.css'
 		}),
 		new HtmlWebpackPlugin({
 			inject: true,
 			template: './src/index.html',
 			filename: 'index.html'
-		}),
-		new webpack.HotModuleReplacementPlugin()
+		})
 	]
 };
