@@ -1,6 +1,6 @@
 {
   "presets": [
-    "@babel/typescript",
+    "minify",
     ["@babel/env", {
       "targets": {
         "browsers": [
@@ -9,7 +9,7 @@
         ]
       }
     }],
-    "minify"
+    "@babel/typescript"
   ],
-  "plugins": ["@babel/plugin-transform-typescript"]
+  "plugins": ["@babel/plugin-proposal-class-properties","@babel/plugin-transform-typescript"]
 }
