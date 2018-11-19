@@ -1,9 +1,11 @@
-const PORT = 9000;
+const PORT = 3010;
+const PROXY = 3000;
 
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = {
 	entry: ['@babel/polyfill', './src/app.ts'],
@@ -75,6 +77,23 @@ module.exports = {
 			inject: true,
 			template: './src/index.html',
 			filename: 'index.html'
-		})
+		}),
+		new BrowserSyncPlugin(
+      // BrowserSync options
+      {
+        host: 'localhost',
+				port: PROXY,
+				// proxy the Webpack Dev Server endpoint
+        // (which should be serving on http://localhost:PORT/)
+        // through BrowserSync
+        proxy: `http://localhost:${PORT}/`
+      },
+      // plugin options
+      {
+        // prevent BrowserSync from reloading the page
+        // and let Webpack Dev Server take care of this
+        reload: false
+      }
+    )
 	]
 };
